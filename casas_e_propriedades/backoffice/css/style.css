@@ -1,0 +1,100 @@
+body{
+  max-width: 1280px;
+  margin: auto;
+}
+.logo{
+  width: 200px;
+  height: 28px;
+}
+.navbar, .navbar .dropdown-menu{background-color: #333333 !important;}
+.navbar .dropdown-menu{
+  padding: 8px 15px;
+  
+}
+.navbar a{
+  color: white;
+  padding:16px 8px ;
+}
+
+.navbar a:hover{background-color: #0000004e}
+
+
+span{
+  font-size: 32px;
+}
+
+span.formulario{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+i{font-size: 14px;}
+
+hr{border-style: dashed;}
+
+label{margin-top: 10px;}
+
+.table-small { width: 5%; }
+.table-medium { width: 18%; }
+.table-large { width: 40%; }
+
+.tabela, .itens{
+  border: 1px solid black;
+  text-wrap: wrap;
+}
+
+.itens{width: 90%;}
+.item{border-top: 1px solid black;}
+th{border-bottom: 1px solid black;}
+
+th, td{padding: 10px;}
+
+tr:nth-of-type(even){background-color: #e6e6e6;}
+
+.box{
+  width: 20px;
+  border-radius: 4px;
+}
+
+.imagem{width: 200px !important;}
+a{
+  color: black;
+  padding: 5px;
+}
+
+.popup{
+  text-decoration: underline;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.guardar{background-color: green;}
+
+.cancelar{
+  background-color: #c6021a;
+}
+
+a.cancelar{text-decoration: none;}
+
+.botao-galeria{width: fit-content;}
+
+img.icon-galeria{width: 30px;}
+
+input, select{width: 450px;}
+
+input, select, button{height: 30px;}
+
+input[type="submit"]{width: fit-content;}
+
+input.empresa, select.empresa{width: 300px;}
+
+input.contacto{width: 91vw;}
+input.img{width: 88vw;}
+
+.checkbox{width: fit-content;}
+
+
+
+
+
