@@ -1,36 +1,9 @@
 <?php
 
-  $erros = [];
   $sucesso = "";
 
   if (!empty($_GET["sucesso"]) && $_GET["sucesso"] == "1") {
     $sucesso = "Formulário enviado com sucesso!";
-  }
-
-  if($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nome   = trim($_POST["nome"] ?? "");
-    $email  = trim($_POST["email"] ?? "");
-    $titulo = trim($_POST["titulo"] ?? "");
-    $texto  = trim($_POST["texto"] ?? "");
-
-    if($nome === "" || $email === "" || $titulo === "" || $texto === "") $erros[] = "Preencha todos os campos.";
-    if(mb_strlen($nome) > 20) $erros[] = "Nome demasiado grande.";
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) $erros[] = "Email inválido.";
-    if(mb_strlen($texto) > 150) $erros[] = "Mensagem demasiado grande."; 
-
-    if(empty($erros)) {
-      $stmt = $pdo->prepare("INSERT INTO contactos (nome, email, titulo, texto) VALUES (:nome, :email, :titulo, :texto)");
-      $stmt->execute([
-        "nome" => $nome,
-        "email" => $email,
-        "titulo" => $titulo,
-        "texto" => $texto,
-      ]);
-
-      header("Location: contact.php?sucesso=1");
-      exit;
-    }
-    
   }
   
 

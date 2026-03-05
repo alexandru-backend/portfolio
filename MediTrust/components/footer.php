@@ -98,6 +98,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="js/form.js"></script>
 
 </body>
 
