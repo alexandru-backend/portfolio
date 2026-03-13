@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 define('SMTP_USER', 'racicovschialexandru@gmail.com');   // <- Muda aqui
-define('SMTP_PASS', 'hzns emap koxs fzex');      // <- App Password aqui
+define('SMTP_PASS', 'jrbi wxuf svwd bhbf');      // <- App Password aqui
 define('SMTP_FROM_NAME', 'MediTrust Hospital');
 
 function enviarEmailConfirmacaoMarcacao(string $nome, string $email, string $doutor, string $departamento, string $data): bool {
