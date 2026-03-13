@@ -34,6 +34,9 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+   <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <!-- =======================================================
   * Template Name: MediTrust
   * Template URL: https://bootstrapmade.com/meditrust-bootstrap-hospital-website-template/

@@ -1,16 +1,3 @@
-<?php
-
-  $sucesso = "";
-
-  if (!empty($_GET["sucesso"]) && $_GET["sucesso"] == "1") {
-    $sucesso = "Formulário enviado com sucesso!";
-  }
-  
-
-?>
-
-
-
   <main class="main">
 
     <!-- Page Title -->
@@ -105,20 +92,10 @@
               <h3>Send Us a Message</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mauris hendrerit faucibus imperdiet nec eget felis.</p>
 
-              <form action="contact.php" method="post" id="form_contactos">
+              <form action="actions/insert_contacts.php" method="post" id="form_contactos">
 
-              <?php if(!empty($sucesso)): ?>
-                <div class="guardar w-100 mb-y p-2 text-success"><?= $sucesso ?></div>
-              <?php endif; ?>
-              <?php if(!empty($erros)): ?>
-                <div class="cancelar w-100 mb-3 p-2 text-danger">
-                  <ul class="mb-0">
-                    <?php foreach($erros as $e): ?>
-                      <li><?= $e ?></li>
-                    <?php endforeach; ?>
-                  </ul>
-                </div>
-              <?php endif; ?>
+                <div class="mensagem-status d-none mb-3 p-2 text-center rounded"></div>
+
                 <div class="form-floating mb-3">
                   <input type="text" class="form-control" id="nameInput" name="nome" placeholder="Full Name" maxlength="20" required>
                   <label for="nameInput">Full Name</label>
@@ -137,6 +114,10 @@
                 <div class="form-floating mb-3">
                   <textarea class="form-control" id="messageInput" name="texto" rows="5" placeholder="Your Message" maxlength="150" style="height: 150px" required></textarea>
                   <label for="messageInput">Your Message</label>
+                </div>
+
+                <div class="mb-3">
+                    <div class="g-recaptcha" data-sitekey="6LfZOIksAAAAAF-eFjA-qtEvJh46giW6ht6jihEe"></div>
                 </div>
 
                 <div class="d-grid">

@@ -1,9 +1,14 @@
 <?php
-// 1. Importante: Inclui o teu ficheiro de configuração/conexão aqui!
-// Se o config.php estiver na pasta raiz, usas ../ para subir um nível.
 require_once '../helpers/base_dados_helper.php';
 
-if($_SERVER["REQUEST_METHOD"] === "POST") {
+  if($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    require_once '../helpers/recaptcha_helper.php';
+    if (!validarRecaptcha()) {
+        echo "Por favor, confirma que não és um robô.";
+        exit;
+    }
+
     $nome   = trim($_POST["nome"] ?? "");
     $email  = trim($_POST["email"] ?? "");
     $titulo = trim($_POST["titulo"] ?? "");
@@ -18,20 +23,23 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     if(mb_strlen($texto) > 150) $erros[] = "Mensagem demasiado grande."; 
 
     if(empty($erros)) {
-        $stmt = $pdo->prepare("INSERT INTO contactos (nome, email, titulo, texto) VALUES (:nome, :email, :titulo, :texto)");
-        $stmt->execute([
-            "nome" => $nome,
-            "email" => $email,
-            "titulo" => $titulo,
-            "texto" => $texto,
-        ]);
+      $stmt = $pdo->prepare("INSERT INTO contactos (nome, email, titulo, texto) VALUES (:nome, :email, :titulo, :texto)");
+      $stmt->execute([
+          "nome" => $nome,
+          "email" => $email,
+          "titulo" => $titulo,
+          "texto" => $texto,
+      ]);
 
-        // Resposta para o JavaScript
-        echo "sucesso";
-        exit;
+      require_once '../helpers/email_helper.php';
+      enviarEmailConfirmacaoContacto($nome, $email, $titulo);
+
+      echo "sucesso";
+      exit;
     } else {
-        // Se houver erros, enviamos os erros para o JS saber
-        echo implode(", ", $erros);
-        exit;
+      echo implode(", ", $erros);
+      exit;
     }
-}
+  }
+
+?>

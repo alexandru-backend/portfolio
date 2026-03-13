@@ -1,56 +1,4 @@
-<?php
 
-  $erros = [];
-  $sucesso = "";
-
-  if (!empty($_GET["sucesso"]) && $_GET["sucesso"] == "1") {
-    $sucesso = "Pedido de marcação enviado com sucesso!";
-  }
-
-  $departamentos_validos = ["cardiology", "neurology", "orthopedics", "pediatrics", "dermatology", "general"];
-  $doutores_validos = ["dr-johnson", "dr-martinez", "dr-chen", "dr-patel", "dr-williams", "dr-thompson"];
-
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nome        = trim($_POST["nome"] ?? "");
-    $email       = trim($_POST["email"] ?? "");
-    $telemovel   = trim($_POST["telemovel"] ?? "");
-    $departamento = trim($_POST["departamento"] ?? "");
-    $data        = trim($_POST["data"] ?? "");
-    $doutor      = trim($_POST["doutor"] ?? "");
-    $descricao   = trim($_POST["descricao"] ?? "");
-
-    if ($nome === "" || $email === "" || $telemovel === "" || $departamento === "" || $data === "" || $doutor === "") {
-      $erros[] = "Preencha todos os campos obrigatórios.";
-    }
-    if (mb_strlen($nome) > 50) $erros[] = "Nome demasiado longo.";
-    if (mb_strlen($email) > 100) $erros[] = "Email demasiado longo.";
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $erros[] = "Email inválido.";
-    if (mb_strlen($telemovel) > 20) $erros[] = "Telemóvel demasiado longo.";
-    if (!in_array($departamento, $departamentos_validos)) $erros[] = "Departamento inválido.";
-    if (!in_array($doutor, $doutores_validos)) $erros[] = "Doutor inválido.";
-    $data_obj = DateTime::createFromFormat("Y-m-d", $data);
-    if (!$data_obj || $data_obj->format("Y-m-d") !== $data) $erros[] = "Data inválida.";
-    if ($data_obj && $data_obj < new DateTime("today")) $erros[] = "A data não pode ser no passado.";
-    if (mb_strlen($descricao) > 500) $erros[] = "Descrição demasiado longa.";
-
-    if (empty($erros)) {
-      $stmt = $pdo->prepare("INSERT INTO marcacoes (nome, email, telemovel, departamento, data, doutor, descricao) VALUES (:nome, :email, :telemovel, :departamento, :data, :doutor, :descricao)");
-      $stmt->execute([
-        "nome" => $nome,
-        "email" => $email,
-        "telemovel" => $telemovel,
-        "departamento" => $departamento,
-        "data" => $data,
-        "doutor" => $doutor,
-        "descricao" => $descricao ?: null,
-      ]);
-
-      header("Location: appointment.php?sucesso=1");
-      exit;
-    }
-  }
-
-?>
 
 
 
@@ -132,26 +80,9 @@
           <!-- Appointment Form -->
           <div class="col-lg-6">
             <div class="appointment-form-wrapper" data-aos="fade-up" data-aos-delay="200">
-              <form action="appointment.php" method="post" class="appointment-form " id="form_marcacoes">
+              <form action="actions/insert_appointments.php" method="post" class="appointment-form " id="form_marcacoes">
+                <div class="mensagem-status d-none mb-3 p-2 text-center rounded"></div>
                 <div class="row gy-3">
-
-                  <?php if (!empty($sucesso)): ?>
-                    <div class="col-12">
-                      <div class="alert alert-success mb-0"><?= $sucesso ?></div>
-                    </div>
-                  <?php endif; ?>
-                  <?php if (!empty($erros)): ?>
-                    <div class="col-12">
-                      <div class="alert alert-danger">
-                        <ul class="mb-0">
-                          <?php foreach ($erros as $e): ?>
-                            <li><?= $e ?></li>
-                          <?php endforeach; ?>
-                        </ul>
-                      </div>
-                    </div>
-                  <?php endif; ?>
-
                   <div class="col-md-6">
                     <input type="text" name="nome" class="form-control" placeholder="Your Full Name" maxlength="50" required>
                   </div>
@@ -194,6 +125,10 @@
 
                   <div class="col-12">
                     <textarea class="form-control" name="descricao" rows="5" placeholder="Please describe your symptoms or reason for visit (optional)" maxlength="500"></textarea>
+                  </div>
+
+                  <div class="col-12">
+                      <div class="g-recaptcha" data-sitekey="6LfZOIksAAAAAF-eFjA-qtEvJh46giW6ht6jihEe"></div>
                   </div>
 
                   <div class="col-12">
