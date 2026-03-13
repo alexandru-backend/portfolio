@@ -1,5 +1,10 @@
 <?php
-define('RECAPTCHA_SECRET', '6LfZOIksAAAAAOBrGiHNYAs8GjEy9mMIIdnlLuwN'); // <- Muda aqui
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+define('RECAPTCHA_SECRET', $_ENV['RECAPTCHA_SECRET']);
 
 function validarRecaptcha(): bool {
     $token = $_POST['g-recaptcha-response'] ?? '';
