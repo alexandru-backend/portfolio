@@ -32,7 +32,7 @@
         mail($contactos["email_formulario"], "Contactos do Site Casas & Propriedades", $mensagem_final, $headers);
       }
 
-      header("Location: contactos.php");
+      header("Location: " . $_SERVER['PHP_SELF']);
       exit;
     }
     else{
@@ -78,7 +78,7 @@
           <hr class="linha">
         </div>
 
-        <form action="" id="formulario_contactos" class="my-5" method="post">
+        <form action="contactos.php" id="formulario_contactos" class="my-5" method="post">
           <input type="text" required placeholder="*Nome" name="nome">
           <input type="number" required placeholder="*Telefone" name="telefone">
           <input type="email" required placeholder="*E-mail" name="email">

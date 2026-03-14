@@ -1,10 +1,10 @@
 <?php
 
 $base_dados = [
-  "host" => "localhost",
-  "dbname" => "casas_e_prop_bd",
-  "user" => "root",
-  "pass" => "",
+  "host" => "sql102.infinityfree.com",
+  "dbname" => "if0_41382764_casas_e_prop_bd",
+  "user" => "if0_41382764",
+  "pass" => "racicovschi2006",
 ];
 
 $pdo = new PDO("mysql:host=$base_dados[host];dbname=$base_dados[dbname];charset=utf8mb4;", $base_dados["user"], $base_dados["pass"]);
