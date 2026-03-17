@@ -8,8 +8,9 @@ from Full Stack training to specialized Backend development.
 ## 🚀 Projects Overview
 
 ### 1. Casas & Propriedades (Final Project)
-A complete Real Estate management platform built during my Full Stack bootcamp 
-at Codemaster.
+A complete Real Estate management platform built during my Full Stack course at Codemaster.
+
+🔗 [casasepropriedades.42web.io](http://casasepropriedades.42web.io)
 
 **Core Tech:** HTML, CSS, PHP, MySQL, JavaScript, Bootstrap
 
@@ -25,6 +26,8 @@ at Codemaster.
 ### 2. MediTrust
 A project focused on mastering Backend logic, security, and asynchronous operations
 by using a pre-built UI template.
+
+🔗 [dev-alexandru.is-great.net](http://dev-alexandru.is-great.net)
 
 **Core Tech:** HTML, CSS, PHP, MySQL, JavaScript (Fetch API), PHPMailer, Google reCAPTCHA v2
 
