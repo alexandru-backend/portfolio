@@ -1,4 +1,4 @@
-# Alexandru Racicovschi — Backend & Full Stack Portfolio
+# Alexandru Racicovschi — Full Stack Web Developer Portfolio
 
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
@@ -9,53 +9,58 @@
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 ![Composer](https://img.shields.io/badge/Composer-885630?style=flat&logo=composer&logoColor=white)
 
-Full Stack developer specialised in PHP backend systems. This repository showcases projects built during and after my Full Stack Web Developer training, focused on real-world functionality, security, and clean architecture.
+I build modern websites and web applications focused on real business needs — from simple business websites to complete management systems with custom backoffices.
+
+## 🧩 What I can build
+- Business websites (restaurants, gyms, local services)
+- Booking and appointment systems
+- Custom admin dashboards (backoffice)
+- Dynamic websites connected to databases
+- Secure backend systems (PHP & MySQL)
 
 ---
 
 ## Projects
 
 ### 🏠 Casas & Propriedades
-**Real Estate Management Platform** — Final course project
+**Real Estate Website & Management System**
 
-🔗 [casasepropriedades.42web.io](http://casasepropriedades.42web.io)
+🔗 Live Demo: http://casasepropriedades.42web.io  
 
-A complete property listing and management system with a custom backoffice, built from scratch during my Full Stack course at Codemaster.
+A complete website for real estate businesses to showcase properties and manage listings through a custom admin panel.
 
-**Tech Stack:** PHP · MySQL · JavaScript · Bootstrap 5 · HTML · CSS
+**Key Features:**
+- Dynamic property listings from database  
+- Admin panel with full CRUD (properties, companies, banners)  
+- Image upload and management system  
+- Responsive design (desktop & mobile)  
 
-| Feature | Details |
-|---|---|
-| Dynamic Listings | Property data and images fetched from MySQL and rendered via PHP |
-| Image Carousels | Per-property carousels with separate layouts for desktop and mobile |
-| Custom Backoffice | Login-protected admin panel with full CRUD for properties, companies, banners, and pages |
-| File Manager | Upload and manage property images from the backoffice; paths stored as JSON arrays in the database |
+**Tech Stack:** PHP · MySQL · JavaScript · Bootstrap  
 
 ---
 
 ### 🏥 MediTrust
-**Medical Appointment Platform** — Backend-focused project
+**Appointment Booking System for Clinics**
 
-🔗 [dev-alexandru.is-great.net](http://dev-alexandru.is-great.net)
+🔗 Live Demo: http://dev-alexandru.is-great.net  
 
-Built on a pre-designed UI template to focus entirely on backend logic: security, data integrity, and asynchronous communication.
+A system that allows users to book appointments with automatic email confirmation and secure data handling.
 
-**Tech Stack:** PHP · MySQL · PDO · JavaScript (Fetch API) · PHPMailer · Bootstrap 5
+**Key Features:**
+- Async form submissions (Fetch API)  
+- Email confirmations (PHPMailer + SMTP)  
+- Google reCAPTCHA protection  
+- Secure backend with PDO and validation  
 
-| Feature | Details |
-|---|---|
-| Async Forms | Fetch API handles all form submissions without page reloads |
-| Email Confirmation | Automated HTML emails via PHPMailer + Gmail SMTP on appointment submission |
-| Bot Protection | Google reCAPTCHA v2 on all public forms |
-| Security | PDO prepared statements, server-side whitelist validation, credentials via dotenv |
+**Tech Stack:** PHP · MySQL · JavaScript · Bootstrap
 
 ---
 
 ## Tech Stack
 
-**Backend:** PHP · MySQL · PDO · PHPMailer · vlucas/phpdotenv  
-**Frontend:** HTML5 · CSS3 · JavaScript (Fetch API) · Bootstrap 5  
-**Security:** Google reCAPTCHA v2 · SQL Injection prevention · dotenv  
+**Backend:** PHP · MySQL · PDO · PHPMailer  
+**Frontend:** HTML · CSS · JavaScript · Bootstrap  
+**Security:** reCAPTCHA · SQL Injection prevention · dotenv  
 **Tools:** Git · Composer
 
 ---
